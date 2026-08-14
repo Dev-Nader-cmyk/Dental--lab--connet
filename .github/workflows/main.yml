@@ -1,28 +1,16 @@
-name: Build Android APK
-
+name: Upload APK Release
 on:
   workflow_dispatch:
 
 jobs:
-  build:
+  release:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Set up Java
-        uses: actions/setup-java@v4
+      - uses: actions/checkout@v4
+      
+      - name: Upload APK to Release
+        uses: softprops/action-gh-release@v2
         with:
-          distribution: temurin
-          java-version: '17'
-
-      - name: Build APK
-        working-directory: android
-        run: ./gradlew assembleDebug
-
-      - name: Upload APK
-        uses: actions/upload-artifact@v4
-        with:
-          name: DentalLabConnect-APK
-          path: android/app/build/outputs/apk/debug/*.apk
+          files: Dental_Lab_Connect_AN*.apk
+          tag_name: v1.0
+          name: Dental Lab Connect v1.0

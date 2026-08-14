@@ -1,16 +1,25 @@
 name: Upload APK Release
+
 on:
   workflow_dispatch:
 
 jobs:
   release:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
-      - uses: actions/checkout@v4
-      
-      - name: Upload APK to Release
+      - name: Checkout repo
+        uses: actions/checkout@v4
+
+      - name: Upload APK to GitHub Release
         uses: softprops/action-gh-release@v2
         with:
-          files:Dental_Lab_Connect_AN*.apk
           tag_name: v1.0
           name: Dental Lab Connect v1.0
+          body: |
+            اول اصدار من تطبيق Dental Lab Connect
+            - تم رفع ملف الـ APK
+          files: Dental_Lab_Connect_AN*.apk
+          draft: false
+          prerelease: false

@@ -11,6 +11,6 @@ jobs:
       - name: Upload APK to Release
         uses: softprops/action-gh-release@v2
         with:
-          files: Dental_Lab_Connect_AN*.apk
+          files:Dental_Lab_Connect_AN*.apk
           tag_name: v1.0
           name: Dental Lab Connect v1.0

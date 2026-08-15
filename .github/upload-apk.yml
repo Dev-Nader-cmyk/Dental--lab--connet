@@ -14,4 +14,4 @@ jobs:
         with:
           tag_name: v1.0.0
           name: Dental Lab Connect v1.0.0
-          files: '*.apk'
+          files: '**/*.apk'
